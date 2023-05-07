@@ -1,0 +1,273 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Gestion Location de Voiture {% endblock %}</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+
+    <style>
+      .section {
+	position: relative;
+	height: 100vh;
+}
+
+.section .section-center {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+#booking {
+	font-family: 'Alice', serif;
+}
+
+.booking-form {
+	position: relative;
+	max-width: 912px;
+	width: 100%;
+	margin: auto;
+	background: #fff;
+	border-radius: 6px;
+	-webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form .booking-bg {
+	position: absolute;
+	left: 25px;
+	top: -25px;
+	bottom: -25px;
+	width: 400px;
+	background-image: url('../img/background.jpg');
+	background-size: cover;
+	background-position: center;
+	padding: 25px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+}
+
+.booking-form .booking-bg::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background: rgba(133, 104, 73, 0.78);
+}
+
+.booking-form>form {
+	margin-left: 425px;
+	padding: 30px;
+}
+
+.booking-form .form-header {
+	margin-bottom: 30px;
+	margin-top: 60px;
+	position: relative;
+	z-index: 20;
+}
+
+.booking-form .form-header h2 {
+	font-family: 'Playfair Display', serif;
+	margin-top: 0;
+	margin-bottom: 15px;
+	font-weight: 900;
+	color: #fff;
+	font-size: 42px;
+	text-transform: capitalize;
+}
+
+.booking-form .form-header p {
+	color: #fff;
+	font-size: 18px;
+}
+
+.booking-form .form-group {
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.booking-form .form-control {
+	background-color: #fff;
+	height: 45px;
+	padding: 0px 15px;
+	color: #151515;
+	border: 1px solid #e5e5e5;
+	font-size: 16px;
+	font-weight: 700;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-radius: 40px;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+}
+
+.booking-form .form-control::-webkit-input-placeholder {
+	color: #e5e5e5;
+}
+
+.booking-form .form-control:-ms-input-placeholder {
+	color: #e5e5e5;
+}
+
+.booking-form .form-control::placeholder {
+	color: #e5e5e5;
+}
+
+.booking-form .form-control:focus {
+	background: #f8f8f8;
+}
+
+.booking-form input[type="date"].form-control:invalid {
+	color: #e5e5e5;
+}
+
+.booking-form select.form-control {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.booking-form select.form-control:invalid {
+	color: #e5e5e5;
+}
+
+.booking-form select.form-control option {
+	color: #151515;
+}
+
+.booking-form select.form-control+.select-arrow {
+	position: absolute;
+	right: 3px;
+	bottom: 5px;
+	width: 32px;
+	line-height: 32px;
+	height: 32px;
+	text-align: center;
+	pointer-events: none;
+	color: #e5e5e5;
+	font-size: 14px;
+}
+
+.booking-form select.form-control+.select-arrow:after {
+	content: '\279C';
+	display: block;
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+.booking-form .form-label {
+	color: #856849;
+	text-transform: uppercase;
+	line-height: 24px;
+	height: 24px;
+	font-size: 14px;
+	font-weight: 400;
+	margin-left: 20px;
+}
+
+.booking-form .form-btn {
+	margin-top: 30px;
+}
+
+.booking-form .submit-btn {
+	display: block;
+	width: 100%;
+	color: #fff;
+	background-color: rgba(133, 104, 73, 0.9);
+	font-weight: 700;
+	font-size: 18px;
+	border: none;
+	border-radius: 40px;
+	height: 55px;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+}
+
+.booking-form .submit-btn:hover,
+.booking-form .submit-btn:focus {
+	background-color: rgba(133, 104, 73, 1);
+}
+
+@media only screen and (max-width: 768px) {
+	.booking-form .booking-bg {
+		position: relative;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: -15px;
+		width: 95%;
+		margin: auto;
+	}
+	.booking-form>form {
+		margin-left: 0px;
+	}
+}
+    </style>
+
+<body >
+
+<nav class="navbar navbar-custom navbar-fixed-top" style="color: black" >
+  <div class="container"  >
+    <div class="navbar-header" >
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="glyphicon glyphicon-align-justify"></span>
+
+      </button>
+      <div class="navbar-brand"style="background-color: black"> 31Agency</div>
+
+
+    </div>
+
+      <div class="collapse navbar-collapse" id="myNavbar"  style="background-color: black">
+      <ul class="nav navbar-nav navbar-right"style="background-color: black">
+         <li>
+             {% block search %}
+            <!-- search box-->
+
+      <form method="GET" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Car Search" value="{{request.GET.q}}" name="q">
+        </div>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> recherche</button>
+      </form>
+    {% endblock %}
+
+{% block nav %}
+        <li><a href="{% url 'newcar' %}"><span class="glyphicon glyphicon-align-justify" ></span> Nouvel Arrivage</a></li>
+        <li><a href="{% url 'popularcar' %}"><span class="glyphicon glyphicon-star"></span> To Louee</a></li>
+        <li><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+
+{% endblock %}
+      </ul>
+    </div>
+
+
+  </div>
+</nav>
+
+
+{% block body %}
+<div class="container">
+
+</div>
+{% endblock %}
+</body>
+</html>
