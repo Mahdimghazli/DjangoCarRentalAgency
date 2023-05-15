@@ -23,7 +23,7 @@
 						</div>
 					</div>
 
-					<form action="/index_order/" method="POST" style="background-color: black; color: orange;">
+					<form action="{% url 'index_order' %}" method="POST" style="background-color: black; color: orange;">
 						{% csrf_token %}
 					  
 						{% if messages %}

@@ -11,29 +11,7 @@ from django.contrib import messages
 
 
 def home(request):
-    car = Car.objects.all()
-
-    query = request.GET.get('q')
-  
-
-    # pagination
-    paginator = Paginator(car, 12)  # Show 15 contacts per page
-    page = request.GET.get('page')
-    try:
-        car = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        car = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        car = paginator.page(paginator.num_pages)
-    context = {
-        'car': car,
-    }
-    context = {
-        "title" : "Car Rental"
-    }
-    return render(request,'home.html', context)
+    return render(request,'home.html')
 
 def car_list(request):
     car = Car.objects.all()
@@ -94,16 +72,19 @@ def index_order(request):
 
         existing_order = Order.objects.filter(date=date,car_name=car_name).first()
         if existing_order:
-            messages.error(request, 'Booking for this date already exists!')
-            return redirect('order_create')
-
+            messages.error(request, 'La réservation pour cette date existe déjà !')
+            return render(request, 'index.html')
+        if date >= to:
+            messages.error(request, 'La date de départ doit être postérieure à la date darrivée !')
+            return render(request, 'index.html')
+        
         order = Order(car_name=car_name, employee_name=employee_name, cell_no=cell_no,
                       address=address, date=date, to=to)
         order.save()
         
-        messages.success(request, 'Your booking was successful!')
+        messages.success(request, 'Votre réservation a réussi !')
         
-        return redirect('car_list')
+        return render(request, 'index.html')
 def msg(request):
     if request.method == 'POST':
         name = request.POST.get('name')

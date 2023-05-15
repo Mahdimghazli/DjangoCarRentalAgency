@@ -5,8 +5,6 @@ from . import views
 
 from system.views import *
 
-re_path(r'^carlist/$', car_list, name='car_list'),
-
 
 urlpatterns = [
     re_path(r'^$', home, name = "home"),

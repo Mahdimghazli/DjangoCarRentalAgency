@@ -26,9 +26,9 @@ body{
       border-color: transparent;
       color: #fff !important;
   }
- .navbar-custom{
-  background-color: aquamarine;
- }
+  .navbar-custom {
+    background-color: #b30000;
+}
   .navbar-fixed-top {
     position: relative!important;
     }
@@ -67,7 +67,7 @@ body{
 .panel-primary {
    border-color: #f1f1f1 !important;
 }
-}
+
 .darger{
    background-color: #f4511e !important;
    color:#fff;
