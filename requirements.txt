@@ -5,3 +5,5 @@ mysqlclient==2.1.1
 Pillow==9.5.0
 sqlparse==0.4.4
 tzdata==2023.3
+beautifulsoup4==4.12.2  # Added for web scraping
+requests==2.26.0  # Added for web scraping
