@@ -14,12 +14,7 @@ class Car(models.Model):
     cost_par_day = models.CharField(max_length=50)
     content = models.TextField()
     like = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.car_name
-
-    def get_absolute_url(self):
-        return "/car/%s/" % (self.id)
+    
 
 class Order(models.Model):
     car_name = models.CharField(max_length=100)
@@ -29,11 +24,7 @@ class Order(models.Model):
     date = models.DateTimeField()
     to = models.DateTimeField()
 
-    def __str__(self):
-        return self.car_name
-
-    def get_absolute_url(self):
-        return "/car/detail/%s/" % (self.id)
+    
 
 class PrivateMsg(models.Model):
     name = models.CharField(max_length=200)

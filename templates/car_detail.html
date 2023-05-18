@@ -8,21 +8,21 @@
 
 
 
-<div class ='col-sm-6 col-sm-offset-3'style="background-color:#b30000;">
-  <div class="list-group-item active" >
-    <strong><span class="glyphicon glyphicon-film" ></span> Detail Voiture</strong>
+<div class ='col-sm-6 col-sm-offset-3'style="background-color:black">
+  <div class="list-group-item active" style="background-color:black">
+    <strong><span class="glyphicon glyphicon-film" style="background-color:black"></span> Detail Voiture</strong>
   </div>
   {% if detail.image %}
   <img src='{{ detail.image.url }}' class="img-responsive"/>
   {% endif %}
-  <a href="" class="list-group-item" style="background-color:orange;"><strong>Nom Voiture: </strong>{{detail.car_name}}</a>
-  <a href="" class="list-group-item"style="background-color:orange;"><strong>Marque   : </strong>{{detail.company_name}}</a>
-  <a href="" class="list-group-item"style="background-color:orange;"><strong>Nb Siege   : </strong>{{detail.num_of_seats}}</a>
-  <a href="" class="list-group-item"style="background-color:orange;"><strong>Tarif/day   : </strong>{{detail.cost_par_day}}</a>
-  <a href="" class="list-group-item"style="background-color:orange;"><strong>Like   : </strong>{{detail.like}}</a>
-  <a href="" class="list-group-item"style="background-color:orange;"><strong>Plus infos'   : </strong>{{detail.content}}</a><br>
+  <a href="" class="list-group-item" style="background-color:black"><strong>Nom Voiture: </strong>{{detail.car_name}}</a>
+  <a href="" class="list-group-item"style="background-color:black"><strong>Marque   : </strong>{{detail.company_name}}</a>
+  <a href="" class="list-group-item"style="background-color:black"><strong>Nb Siege   : </strong>{{detail.num_of_seats}}</a>
+  <a href="" class="list-group-item"style="background-color:black"><strong>Tarif/day   : </strong>{{detail.cost_par_day}}</a>
+  <a href="" class="list-group-item"style="background-color:black"><strong>Like   : </strong>{{detail.like}}</a>
+  <a href="" class="list-group-item"style="background-color:black"><strong>Plus infos'   : </strong>{{detail.content}}</a><br>
   <div class="pull-right" >
-    <a href="{% url 'newcar' %}"><button type="button" class="btn btn-info"><span class=""></span> Nouvel Voiture</button></a>
+    <a href="{% url 'newcar' %}"><button type="button" class="btn btn-info" style="background-color:#b30000"><span class=""></span> Nouvel Voiture</button></a>
     
 <hr>
   </div>

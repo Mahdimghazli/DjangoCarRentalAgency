@@ -17,7 +17,8 @@ urlpatterns = [
     re_path(r'^newcar/$', newcar, name = "newcar"),
     re_path(r'^(?P<id>\d+)/like/$', like_update, name = "like"),
     re_path(r'^popularcar/$', popular_car, name = "popularcar"),
-
+    
+    #scrapping
     re_path(r'^scrape-cars/$', views.scrape_cars, name='scrape_cars'),
     
     

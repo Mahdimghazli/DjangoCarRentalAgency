@@ -13,3 +13,5 @@ class PrivateMsgAdmin(admin.ModelAdmin):
 admin.site.register(Car, CarAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(PrivateMsg, PrivateMsgAdmin)
+
+admin.site.site_header = "ADMIN CAR RENTAL"
